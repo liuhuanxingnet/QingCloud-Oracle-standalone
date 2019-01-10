@@ -1,0 +1,185 @@
+{
+    "type": "array",
+    "properties": [
+        {
+            "key": "cluster",
+            "description": "oracle properties",
+            "type": "array",
+            "properties": [
+                {
+                    "key": "name",
+                    "label": "Name",
+                    "description": "The name of oracle cluster",
+                    "type": "string",
+                    "default": "oracle cluster",
+                    "required": "yes"
+                },
+                {
+                    "key": "description",
+                    "label": "Description",
+                    "description": "The description of oracle service",
+                    "type": "string",
+                    "default": "",
+                    "required": "no"
+                },
+                {
+                    "key": "vxnet",
+                    "label": "VxNet",
+                    "description": "Choose a vxnet to join",
+                    "type": "string",
+                    "default": "",
+                    "required": "yes"
+                },              
+                {
+                    "key": "master",
+                    "label": "oracle Master Node Config",
+                    "description": "Master node properties",
+                    "type": "array",
+                    "properties": [
+                        {
+                            "key": "cpu",
+                            "label": "CPU",
+                            "description": "CPUs of master node",
+                            "type": "integer",
+                            "default": 2,
+                            "range": [
+                                2,
+                                4,
+                                8
+                            ],
+                            "required": "yes"
+                        },
+                        {
+                            "key": "memory",
+                            "label": "Memory",
+                            "description": "memory of master node (in MiB)",
+                            "type": "integer",
+                            "default": 4096,
+                            "range": [
+                                4096,
+                                8192,
+                                16384
+                            ],
+                            "required": "yes"
+                        },                     
+                         {
+                            "key": "instance_class",
+                            "label": "Instance Class",
+                            "description": "The instance type for the cluster to performance plus",
+                            "type": "integer",
+                            "default": 0,
+                            "range": [
+                                0,
+                                1
+                            ],
+                            "required": "yes"
+                        },
+                         {
+                            "key": "volume_size",
+                            "label": "Volume Size",
+                            "description": "The volume size for master node",
+                            "type": "integer",
+                            "default": 10,
+                            "min": 10,
+                            "max": 1000,
+                            "required": "yes"
+                        }                      
+                    ]
+                },
+                 {
+                    "key": "slave",
+                    "label": "oracle Slave Node Config",
+                    "description": "Slave node properties",
+                    "type": "array",
+                    "properties": [
+                        {
+                            "key": "cpu",
+                            "label": "CPU",
+                            "description": "CPUs of slave node",
+                            "type": "integer",
+                            "default": 2,
+                            "range": [
+                                2,
+                                4,
+                                8
+                            ],
+                            "required": "yes"
+                        },
+                        {
+                            "key": "memory",
+                            "label": "Memory",
+                            "description": "memory of each slave node (in MiB)",
+                            "type": "integer",
+                            "default": 4096,
+                            "range": [
+                                4096,
+                                8192,
+                                16384
+                            ],
+                            "required": "yes"
+                        },
+                        {
+                            "key": "instance_class",
+                            "label": "Instance Class",
+                            "description": "The instance type for the cluster to performance plus",
+                            "type": "integer",
+                            "default": 0,
+                            "range": [
+                                0,
+                                1
+                            ],
+                            "required": "yes"
+                        },
+                         {
+                            "key": "volume_size",
+                            "label": "Volume Size",
+                            "description": "The volume size for slave node",
+                            "type": "integer",
+                            "default": 10,
+                            "min": 10,
+                            "max": 1000,
+                            "required": "yes"
+                        },
+                         {"key": "count",
+                            "label": "Count",
+                            "description": "The count of slave node",
+                            "type": "integer",
+                            "default": 1,
+                            "range": [0,
+                                1,
+                                2
+                            ],
+                            "required": "yes"
+                          }
+                    ]
+                }
+                ]
+                },
+                 {
+                     "key": "env",
+                     "description": "application configuration properties",
+                     "type": "array",
+                     "properties":  [
+                        {
+                            "key": "user",
+                            "label": "Database user",
+                            "description": "username for database,can't be changed once created",
+                            "type": "string",
+                            "default": "dba",
+                            "changeable": false,
+                            "required": "yes"
+                        },
+                        {
+                            "key": "userPass",
+                            "label": "Database Password",
+                            "description": "Password for database,can't be changed once created",
+                            "type": "password",
+                            "changeable": false,
+                            "default": "",
+                            "required": "yes"
+                        }
+                    ]
+                }              
+    ]
+}
+
