@@ -1,2 +1,2 @@
 # QingCloud-Oracle-standalone
-oracle云平台（一主多从），集群灾备配置
+云平台（oracle一主多从），集群灾备配置
